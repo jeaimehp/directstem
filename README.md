@@ -407,9 +407,9 @@ plt.savefig('log2_std_vs_log2_N.png')
 
 ```
 
-![Screen%20Shot%202020-04-24%20at%2010.29.42%20AM.png](attachment:Screen%20Shot%202020-04-24%20at%2010.29.42%20AM.png)
+![estimate1.png](attachment:estimate1.png)
 
-![Screen%20Shot%202020-04-24%20at%2010.29.57%20AM.png](attachment:Screen%20Shot%202020-04-24%20at%2010.29.57%20AM.png)
+![estimate2.png](attachment:estimate2.png)
 
 ## References
 
