@@ -407,9 +407,9 @@ plt.savefig('log2_std_vs_log2_N.png')
 
 ```
 
-![estimate1.png](attachment:estimate1.png)
+<img src="images/estimate1.png" width="600"/>
 
-![estimate2.png](attachment:estimate2.png)
+<img src="images/estimate1.png" width="600"/>
 
 ## References
 
