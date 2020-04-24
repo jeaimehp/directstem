@@ -31,8 +31,9 @@ if __name__ == '__main__':
     N = n_ests*n
     
     start = time.time()
-    pi_ests = []
+    
     for i in range(n_ests):
+        pi_ests = []
         pi_ests.append(estimate_pi(n))
     
     
@@ -89,8 +90,9 @@ if __name__ == '__main__':
   #  N = n_ests*n
     
     
-    pi_ests = []
+    
     while darts < 10000000:
+        pi_ests = []
         start = time.time()
         for i in range(n_ests):
             
@@ -113,25 +115,28 @@ Here's the output from the code, including the time for each run. Look at the co
 
 
 ```python
-Number of runs = 50, t = 0.0021
-pi_est_mean = 3.1768000000, pi_est_std = 0.1435749282, darts = 100
-Number of runs = 50, t = 0.0038
-pi_est_mean = 3.1572800000, pi_est_std = 0.1095180423, darts = 1000
-Number of runs = 50, t = 0.0197
-pi_est_mean = 3.1512826667, pi_est_std = 0.0903465128, darts = 10000
-Number of runs = 50, t = 0.2930
-pi_est_mean = 3.1486928000, pi_est_std = 0.0784193655, darts = 100000
-Number of runs = 50, t = 2.9915
-pi_est_mean = 3.1472690240, pi_est_std = 0.0702022060, darts = 1000000
+Number of runs = 50, t = 0.0019
+pi_est_mean = 3.1536000000, pi_est_std = 0.1640214620, darts = 100
+Number of runs = 50, t = 0.0055
+pi_est_mean = 3.1442400000, pi_est_std = 0.0506622384, darts = 1000
+Number of runs = 50, t = 0.0231
+pi_est_mean = 3.1444720000, pi_est_std = 0.0173927231, darts = 10000
+Number of runs = 50, t = 0.2262
+pi_est_mean = 3.1417144000, pi_est_std = 0.0042169563, darts = 100000
+Number of runs = 50, t = 2.8439
+pi_est_mean = 3.1414833600, pi_est_std = 0.0016668142, darts = 1000000
 ```
 
 | Number of Darts | Result  |
 |----------------|---------|
-|  100            | ![Screen%20Shot%202020-04-22%20at%202.41.01%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%202.41.01%20PM.png) |
-|  1,000          | ![Screen%20Shot%202020-04-22%20at%202.41.18%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%202.41.18%20PM.png) |
-|  10,000         | ![Screen%20Shot%202020-04-22%20at%202.41.29%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%202.41.29%20PM.png) |
-|  100,000        | ![Screen%20Shot%202020-04-22%20at%202.41.37%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%202.41.37%20PM.png) |
-|  1,000,000      | ![Screen%20Shot%202020-04-22%20at%202.41.48%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%202.41.48%20PM.png) |
+|  100            | <img src="images/100_darts.png" width="200"/> |
+|  1,000          | <img src="images/1000_darts.png" width="200"/> |
+|  10,000         | <img src="images/10000_darts.png" width="200"/> |
+|  100,000        | <img src="images/100000_darts.png" width="200"/> |
+|  1,000,000      | <img src="images/1000000_darts.png" width="200"/> |
+
+You can see the effect of using a large number of darts on the variance of the results. All the histograms have the same x range, 3.0 to 3.3, to make the easy to compare.
+
 
 The following program implements a loop that runs the simulation with the same number of darts `darts = 10000` and changes the number of runs from 50 to 50000. You can copy and paste this code into a new file in Spyder, I called it `montepi-loop.py`.
 
@@ -157,8 +162,9 @@ if __name__ == '__main__':
     n_ests = 50
     darts = 10000
     
-    pi_ests = []
+   
     while n_ests < 100000:
+        pi_ests = []
         start = time.time()
         for i in range(n_ests):
             
@@ -167,6 +173,7 @@ if __name__ == '__main__':
         t = time.time() - start
         print("Number of runs = {:d}, t = {:2.4f}".format(n_ests, t))
         plt.figure()
+        plt.xlim((3.1,3.2))
         plt.hist(pi_ests)
     
         pi_est_mean = np.mean(pi_ests)
@@ -181,35 +188,35 @@ Here is the output from this code, you can see the time increase as you go from 
 
 
 ```python
-Number of runs = 50, t = 0.0208
-pi_est_mean = 3.1440880000, pi_est_std = 0.0185809003, darts = 10000
-Number of runs = 500, t = 0.2445
-pi_est_mean = 3.1416116364, pi_est_std = 0.0162386881, darts = 10000
-Number of runs = 5000, t = 2.3345
-pi_est_mean = 3.1416779820, pi_est_std = 0.0164424089, darts = 10000
-Number of runs = 50000, t = 25.1011
-pi_est_mean = 3.1415124320, pi_est_std = 0.0164090145, darts = 10000
+Number of runs = 50, t = 0.0301
+pi_est_mean = 3.1447520000, pi_est_std = 0.0144816883, darts = 10000
+Number of runs = 500, t = 0.2138
+pi_est_mean = 3.1417456000, pi_est_std = 0.0169036209, darts = 10000
+Number of runs = 5000, t = 2.0944
+pi_est_mean = 3.1413668000, pi_est_std = 0.0165346623, darts = 10000
+Number of runs = 50000, t = 21.3021
+pi_est_mean = 3.1416676240, pi_est_std = 0.0164531550, darts = 10000
 ```
 
 | Number of Runs | Result  |
 |----------------|---------|
-|  50            | ![Screen%20Shot%202020-04-21%20at%2011.23.13%20AM.png](attachment:Screen%20Shot%202020-04-21%20at%2011.23.13%20AM.png)|
-|  500           | ![Screen%20Shot%202020-04-21%20at%2011.23.04%20AM.png](attachment:Screen%20Shot%202020-04-21%20at%2011.23.04%20AM.png)|
-|  5000          | ![Screen%20Shot%202020-04-21%20at%2011.22.52%20AM.png](attachment:Screen%20Shot%202020-04-21%20at%2011.22.52%20AM.png)|
-|  50000         | ![Screen%20Shot%202020-04-21%20at%2011.22.37%20AM.png](attachment:Screen%20Shot%202020-04-21%20at%2011.22.37%20AM.png)|
+|  50            | <img src="images/50_runs.png" width="200"/>|
+|  500           | <img src="images/500_runs.png" width="200"/>|
+|  5000          | <img src="images/5000_runs.png" width="200"/>|
+|  50000         | <img src="images/50000_runs.png" width="200"/>|
 
 
 ## Why Parallel?
 
 
 
-![Screen%20Shot%202020-04-16%20at%209.24.33%20AM.png](attachment:Screen%20Shot%202020-04-16%20at%209.24.33%20AM.png)
+<img src="images/threads.png" width="600"/>
 
 As the image above shows, if we can break up the tasks in our code to run on separate threads at the same time, we can potentially make the code run faster. This can be difficult to get to work and it isn't always better to run this way but for some jobs, we can significantly speed up our code and also expand onto large parallel systems, like supercomputers, to calculate very large systems.
 
 This is why Monte Carlo calcuations are very popular in supercomputing scale applications, because it is fairly easy to scale them up and the individual processes are **independent** so they can run at the same time without dependencies.
-![Screen%20Shot%202020-04-16%20at%209.23.43%20AM.png](attachment:Screen%20Shot%202020-04-16%20at%209.23.43%20AM.png)
 
+<img src="images/montecarlo_slide.png" width="600"/>
 
 ### MPI4Py
 
@@ -224,10 +231,9 @@ comm.scatter(data) # break up an array and send data out to all processors
 comm.gather(data) # gather data from processors
 ```
 
-![Screen%20Shot%202020-04-22%20at%204.07.56%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%204.07.56%20PM.png)
+<img src="images/MPI_scatter.png" width="600"/>
 
-
-![Screen%20Shot%202020-04-22%20at%204.07.50%20PM.png](attachment:Screen%20Shot%202020-04-22%20at%204.07.50%20PM.png)
+<img src="images/MPI_Gather.png" width="600"/>
 
 Here's an example of scatter and gather in our code. On each of the available processes, it will calculate an estimate of pi by drawing N random numbers. The master processes will assemble all of the estimates produced by all workers, and compute the mean and standard deviation across the independent runs.
 
@@ -250,35 +256,32 @@ def estimate_pi_in_parallel(comm, N):
 
 ## Moving to the Supercomputer
 
-![Screen%20Shot%202020-04-16%20at%209.23.51%20AM.png](attachment:Screen%20Shot%202020-04-16%20at%209.23.51%20AM.png)
+<img src="images/mpi_montecarlo.png" width="600"/>
 
 ### Running our Monte Carlo estimation in parallel on Stampede2
 
-Now, we will transfer the `pi_csv.py` python file and the `job.sh` job script file to Stampede2. We want to run this job several times with different size core count requests to see how that affects how long the job takes. We will edit the job script to request different numbers of cores: 8, 16, 32, 64.
+Now, we will transfer the `pi_parallel.py` python file and the `job.sh` job script file to Stampede2. We want to run this job several times with different size core count requests to see how that affects how long the job takes. We will edit the job script to request different numbers of cores: 8, 16, 32, 64.
 
 To run this program on Stampede2, we have to go through certain steps;
 
-1. Transfer files to Stampede2 using Globus
-2. Log into Stampede2 and update `job.sh` file 
-3. Submit jobs to batch
-4. Once job completes, check output for successful completion
+1. Log into Stampede2 
+2. Get files from github repository
+3. Update `job.sh` file and submit jobs to batch
+4. Once a job completes, check output for successful completion
 5. Transfer output back to your computer, using Globus
 
-1. Transfer files to Stampede2
-    - Go to globus.org and “Log In”
-    - Go to “Your Collections” and choose your “Endpoint”
-    - Select the “Panel” with two(2) columns
-    - Add the Collection “XSEDE TACC Stampede 2”
-    - Select the file(s) you want to transfer and click “Start”
-    - Click “refresh list” to see the new files when completed
-
-
-2. Log into Stampede2 and update `job.sh` 
-    - ssh to login.xsede.org then gsissh to stampede2
-    - `mkdir directstem` create directstem directory
-    - `cp pi_csv.py job.sh directstem` #copy code and job files to new directory
-    - `cd directstem` move into the directory
-    - Edit (use either nano or vi) job.sh to modify the email address to yours
+1. Log into Stampede2 
+    - ssh to login.xsede.org then gsissh to Stampede2
+    
+    
+2. Get files from github repository    
+    - `git clone https://github.com/jeaimehp/directstem.git`
+    - This will create a directory "directstem" and put the files we need there
+    - `cd directstem`
+  
+  
+3. Update `job.sh` batch script and submit jobs to batch
+      - Edit (use either nano or vi) job.sh to modify the email address to yours
 
         #SBATCH --mail-user=youremail@xxxx.edu
         
@@ -289,11 +292,7 @@ To run this program on Stampede2, we have to go through certain steps;
         
     - If using vi, press i to allow editing and change 64 to 8, hit `esc`, then type `:w job8.sh`. This will save a new file. Repeat these steps for 16 and 32. When done type `:q!` to leave vi
     - If using nano, edit line above, change 64 to 8. Ctrl+o change filename to `job8.sh`. Repeat these steps for 16 and 32. When done type Ctrl+x to leave nano, answer no.
-    
     Now you should have 4 job scripts: job.sh, job8.sh, job16.sh, job32.sh
-
-3. Submit jobs to batch
-
     - `sbatch  job.sh ` #submit each job
         When you submit the job, you should see some statements checking that you have provided the correct information. The final statement should be "Submitted batch job XXXXXXX" That number is your jobid.
     - squeue -u \`whoami\`  #check job status
@@ -345,6 +344,10 @@ sys	39m11.914s
 
 We can look at each of these output files to see how long the calculation took with different size core requests.
 
+Use the `grep` command to view the number of cores and time of each job
+
+`grep -E "MPI\real" myjob.o*`
+
 | Number of Cores | Time   |
 |----------------|---------|
 | 8  |    12min 2.164sec    |
@@ -355,13 +358,28 @@ We can look at each of these output files to see how long the calculation took w
 
 Here is the "real" time data for one set of jobs with different core requests. You can see that generally the job gets significantly shorter as you increase the number of cores. The difference between 32 and 64 cores is not as large as you might expect. There is a limit to how parallel code can go, it isn't always effective to just add more cores. We might expect to see a drop off in speed if we ran this job with more than 64 cores.
 
+
+```python
+print(np.pi)
+3.141592653589793
+```
+
 5. Transfer output back to your computer, using Globus
-    - Once you get the results for the 64 core job, we are going to transfer that back to your laptop.
-    - Use the Globus directions above to transfer the job output.
+    - Once you get the results for the 64 core job, we are going to transfer that file (`pi_output_64.csv`) back to your laptop.
+    - Use the Globus directions below to transfer the job output.
+
+Transfer files to Stampede2
+    - Go to globus.org and “Log In”
+    - Go to “Your Collections” and choose your “Endpoint”
+    - Select the “Panel” with two(2) columns
+    - Add the Collection “XSEDE TACC Stampede 2”
+    - Select the file(s) you want to transfer and click “Start”
+    - Click “refresh list” to see the new files when completed
+
 
 ### Visualizing Output
 
-The final activity is to visualize the result of the 64 node calculation. We will transfer the csv file `pi_output_64.csv` back to our own computers using Globus and create some graphs using Spyder.
+The final activity is to visualize the statistics collected in the 64 node job. The code you can use to do this is below. Once, you've transferred the output from Stampede2 to your laptop, you can run this in Spyder. Make sure to change the path to the csv file or Spyder won't be able to find it.
 
 
 
@@ -371,7 +389,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-output = pd.read_csv("/Users/kcahill/Documents/directstem/pi_output.csv", header=None)
+output = pd.read_csv("/path to your file/pi_output.csv", header=None)
 estimates=np.array(output)
 print(estimates)
 
