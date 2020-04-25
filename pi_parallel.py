@@ -115,7 +115,7 @@ if __name__ == '__main__':
             pi_est_mean, pi_est_std = result
             estimates.append((N, pi_est_mean, pi_est_std))
             print(N, pi_est_mean, pi_est_std)
-	        filename = "pi_output_%s.csv" % str(size)
+	    filename = "pi_output_%s.csv" % str(size)
             with open(filename, 'w') as file:
                 writer = csv.writer(file)
                 writer.writerows(estimates)
