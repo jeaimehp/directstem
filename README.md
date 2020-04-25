@@ -409,7 +409,7 @@ plt.savefig('log2_std_vs_log2_N.png')
 
 <img src="images/estimate1.png" width="600"/>
 
-<img src="images/estimate1.png" width="600"/>
+<img src="images/estimate2.png" width="600"/>
 
 ## References
 
